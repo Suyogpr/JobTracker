@@ -2,6 +2,9 @@ package com.stygian.jobtracker;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -27,7 +30,7 @@ public ResponseEntity<JobApplication> getOne(@PathVariable Long id){
 }
 
 @PostMapping    //CREATE
-public JobApplication create(@RequestBody JobApplication app){
+public JobApplication create(@Valid @RequestBody JobApplication app){
     return repo.save(app);
 }
 
